@@ -22,6 +22,11 @@ client.on('message', message => {
             }
             message.channel.send(s);
         break;
+        case "say" :
+            let text = args.slice(1).join(" ");
+            message.delete();
+            message.channel.send(text);
+        break;
 }
 });
 
