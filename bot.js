@@ -15,8 +15,12 @@ client.on('message', message => {
             message.channel.send('Pong!');
         break;
         case "cookies" :
-            let n = args[0]
-            message.channel.send(':cookie' * n);
+            var n = args[0];
+            var s = ''
+            for (var iter = 0; iter < n; iter++) {
+                s += ':cookie:'
+            }
+            message.channel.send(s);
         break;
 }
 });
