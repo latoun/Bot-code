@@ -23,6 +23,6 @@ async def on_message(message):
     if message.content.lower() == "!chat":
 
             
-        
+         
 
 client.run("NDI0OTA1NjIxMjI2MTI3MzYx.DZBdUQ.fbGjEtPh2rDaIn9b0A1ybwW_Uqo") #Replace token with your bots token
