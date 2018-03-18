@@ -10,6 +10,7 @@ client.on('message', message => {
     if (!message.content.startsWith(prefix) || message.author.bot) return;
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
+    message.delete();
     switch (command) {
         case "ping" :
             message.channel.send('Pong!');
@@ -23,7 +24,7 @@ client.on('message', message => {
             message.channel.send(s);
         break;
         case "say" :
-            let text = args.slice(1).join(" ");
+            let text = args.slice(0).join(" ");
             message.delete();
             message.channel.send(text);
         break;
