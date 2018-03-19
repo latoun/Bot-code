@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const prefix = process.env.PREFIX;
 var dicoMode = false;
-var chat = false;
+var jeuChat = false;
 
 client.on('ready', () => {
     console.log('I am ready!');
@@ -42,7 +42,7 @@ client.on('message', message => {
                 message.channel.send(text);
             break;
             case "play" :
-                if (args[0] == "chat" && !chat) {                  
+                if (args[0] == "chat" && !jeuChat) {                  
                     message.channel.send("Jeu du chat lancé");   
                 }
             break;
