@@ -42,8 +42,22 @@ client.on('message', message => {
                 message.channel.send(text);
             break;
             case "play" :
-                message.channel.send("Jeu lancé");
-                message.channel.send(args[0]);
+                if (args[0] == "chat" && chat){
+                    message.channel.send("Jeu du chat stoppé");
+                    chat = false;
+                    message.guild.roles.find("name","Chat").delete(); 
+                }
+                else if (args[0] == "chat" && !chat){
+                    chat = true;
+                    message.channel.send("Jeu du chat lancé");
+                    message.guild.createRole({
+                        name: 'Chat',
+                        color: 'RED',
+                    });
+                    message.channel.send("Role créé");
+                    message.guild.members.random().addrole(message.guild.roles.find("name", "Chat"));
+                    message.channel.send("Chat désigné");
+                }
             break;
             case "chat" :
                 let chat = message.mentions.members.first();
