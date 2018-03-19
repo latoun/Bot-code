@@ -44,6 +44,14 @@ client.on('message', message => {
             case "play" :
                 if (args[0] == "chat" && !jeuChat) {
                     message.channel.send("Jeu du chat lancé");
+                    jeuChat = true;
+                    message.guild.createRole({
+                        name: 'Chat',
+                        color: 'RED',
+                    });
+                    message.channel.send("Role créé");
+                    message.guild.members.random().addrole(message.guild.roles.find("name", "Chat"));
+                    message.channel.send("Chat désigné");
                 }
             break;
             case "chat" :
