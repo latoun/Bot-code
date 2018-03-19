@@ -42,7 +42,7 @@ client.on('message', message => {
             case "chat" :
                 let chat = message.mentions.members.first();
             case "dicomode" :
-                if (dicomode) {
+                if (dicoMode) {
                     message.channel.send("DicoMode désactivé");
                     dicomode = false;
                 }
