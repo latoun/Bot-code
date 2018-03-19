@@ -8,16 +8,15 @@ client.on('ready', () => {
 
 client.on('message', message => {
     if (message.author.bot) return;
-    /*if(!message.content.startsWith(prefix)) {
+    if(!message.content.startsWith(prefix)) {
         const args = message.content.trim().split(/ +/g);
         for(var iter = 0; iter < args.length; iter++){
-            s = arge[iter].split("")
-            if (s.shift().toLowerCase() == 'd' && s.shift().toLowerCase() == 'i') {
-                message.channel.send(s.join(""));
+            if (args[iter].startsWith("di")) {
+                message.channel.send(args[iter].slice(2));
             }
         }
     }
-    else { */
+    else {
         const args = message.content.slice(prefix.length).trim().split(/ +/g);
         const command = args.shift().toLowerCase();
         switch (command) {
@@ -39,9 +38,8 @@ client.on('message', message => {
             break;
             case "chat" :
                 let chat = message.mentions.members.first();
-            break;
         }
-    //}    
+    }    
 });
 
 // THIS  MUST  BE  THIS  WAY
