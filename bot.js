@@ -15,6 +15,7 @@ client.on('message', message => {
                 if (args[iter].shift().toLowerCase() == 'd' && args[iter].shift().toLowerCase() == 'i')
             }
         }
+    else {
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
     switch (command) {
@@ -36,6 +37,7 @@ client.on('message', message => {
         break;
         case "chat" :
             let chat = message.mentions.members.first();
+        }
 
 }
 });
