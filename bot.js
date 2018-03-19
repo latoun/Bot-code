@@ -9,8 +9,8 @@ client.on('ready', () => {
 client.on('message', message => {
     if (message.author.bot) return;
     if(!message.content.startsWith(prefix)) {
-        const args = message.content.slice(prefix.length).trim().split(/ +/g);
-        for(var iter = 0; iter < args/length; iter++){
+        const args = message.content.trim().split(/ +/g);
+        for(var iter = 0; iter < args.length; iter++){
             s = arge[iter].split("")
             if (s.shift().toLowerCase() == 'd' && s.shift().toLowerCase() == 'i') {
                 message.channel.send(s.join(""));
