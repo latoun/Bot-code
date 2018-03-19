@@ -3,6 +3,7 @@ const client = new Discord.Client();
 const prefix = process.env.PREFIX;
 var dicoMode = false;
 var chat = false;
+
 client.on('ready', () => {
     console.log('I am ready!');
 });
@@ -43,7 +44,18 @@ client.on('message', message => {
             case "play" :
                 switch (args[1]){
                     case "chat":
-                        //Switch code
+                        if (!chat) {
+                            chat = true;
+                            message.guild.createRole({
+                                name: 'Chat',
+                                color: 'RED',
+                                });
+                            message.guild.members.random().addrole(message.guild.roles.find("name", "Chat"));
+                        }
+                        if (chat) {
+                            chat = false;
+                            message.guild.roles.find("name","Chat").delete()
+                        }
                     break
                 }
             break;
