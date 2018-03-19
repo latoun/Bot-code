@@ -7,7 +7,14 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-    if (!message.content.startsWith(prefix) || message.author.bot) return;
+    let role = message.guild.roles.find("name", "Chat");
+    if (message.author.bot) return;
+    if(!message.content.startsWith(prefix)) {
+        const args = message.content.slice(prefix.length).trim().split(/ +/g);
+        for(var iter = 0; iter < args/length; iter++){
+                if (args[iter].shift().toLowerCase() == 'd' && args[iter].shift().toLowerCase() == 'i')
+            }
+        }
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
     switch (command) {
@@ -27,6 +34,9 @@ client.on('message', message => {
             message.delete();
             message.channel.send(text);
         break;
+        case "chat" :
+            let chat = message.mentions.members.first();
+
 }
 });
 
