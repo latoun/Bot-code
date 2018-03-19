@@ -11,8 +11,11 @@ client.on('message', message => {
     if(!message.content.startsWith(prefix)) {
         const args = message.content.trim().split(/ +/g);
         for(var iter = 0; iter < args.length; iter++){
-            if (args[iter].startsWith("di")) {
+            if (args[iter].toLowerCase().startsWith("di")) {
                 message.channel.send(args[iter].slice(2));
+            }
+            if (args[iter].toLowerCase().startsWith("cri")) {
+                message.channel.send(args[iter].slice(2).toUpperCase());
             }
         }
     }
