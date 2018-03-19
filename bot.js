@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const prefix = process.env.PREFIX;
 var dicoMode = false;
+var chat = false;
 client.on('ready', () => {
     console.log('I am ready!');
 });
@@ -39,8 +40,19 @@ client.on('message', message => {
                 message.delete();
                 message.channel.send(text);
             break;
+            case "play" :
+                switch (args[1]){
+                    case "chat":
+                        //Switch code
+                    break
+                }
+            break;
             case "chat" :
                 let chat = message.mentions.members.first();
+            break;
+            case "aide" :
+                message.author.send("test");
+            break;
             case "dicomode" :
                 if (dicoMode) {
                     message.channel.send("DicoMode désactivé");
