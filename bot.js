@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const prefix = process.env.PREFIX;
-dicoMode = false;
+var dicoMode = false;
 client.on('ready', () => {
     console.log('I am ready!');
 });
