@@ -42,14 +42,14 @@ client.on('message', message => {
                 message.channel.send(text);
             break;
             case "play" :
-                 if (args[0] == "chat" && chat){
+                 if (args[0] == "chat" && jeuChat){
                     message.channel.send("Jeu du chat stoppé");
-                    chat = false;
+                    jeuChat = false;
                     message.guild.roles.find("name","Chat").delete(); 
                 }
                 else {
                     message.channel.send("Jeu du chat lancé");
-                    chat = true;
+                    jeuChat = true;
                     message.guild.createRole({
                         name: 'Chat',
                         color: 'RED',
