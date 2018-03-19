@@ -42,25 +42,21 @@ client.on('message', message => {
                 message.channel.send(text);
             break;
             case "play" :
-                 switch (args[0]){
-                    case "chat":
-                        if (jeuChat) {
-                            message.channel.send("Jeu du chat stoppé");
-                            jeuChat = false;
-                            message.guild.roles.find("name","Chat").delete(); 
-                        }
-                        else {
-                            jeuChat = true;
-                            message.channel.send("Jeu du chat lancé");
-                            message.guild.createRole({
-                                name: 'Chat',
-                                color: 'RED',
-                                });
-                            message.channel.send("Role créé");
-                            message.guild.members.random().addrole(message.guild.roles.find("name", "Chat"));
-                            message.channel.send("Chat désigné");
-                        }
-                    break;
+                 if (args[0] == "chat" && chat){
+                    message.channel.send("Jeu du chat stoppé");
+                    chat = false;
+                    message.guild.roles.find("name","Chat").delete(); 
+                }
+                else {
+                    message.channel.send("Jeu du chat lancé");
+                    chat = true;
+                    message.guild.createRole({
+                        name: 'Chat',
+                        color: 'RED',
+                    });
+                    message.channel.send("Role créé");
+                    message.guild.members.random().addrole(message.guild.roles.find("name", "Chat"));
+                    message.channel.send("Chat désigné");
                 }
             break;
             case "chat" :
