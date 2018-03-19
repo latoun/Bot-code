@@ -8,14 +8,7 @@ client.on('ready', () => {
 
 client.on('message', message => {
     let role = message.guild.roles.find("name", "Chat");
-    if (message.author.bot) return;
-    if(!message.content.startsWith(prefix)) {
-        const args = message.content.slice(prefix.length).trim().split(/ +/g);
-        for(var iter = 0; iter < args/length; iter++){
-                if (args[iter].shift().toLowerCase() == 'd' && args[iter].shift().toLowerCase() == 'i')
-            }
-        }
-    else {
+    if (message.author.bot || !message.content.startsWith(prefix)) return;
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
     switch (command) {
@@ -39,7 +32,7 @@ client.on('message', message => {
             let chat = message.mentions.members.first();
         }
 
-}
+
 });
 
 // THIS  MUST  BE  THIS  WAY
