@@ -44,11 +44,11 @@ client.on('message', message => {
             case "dicomode" :
                 if (dicoMode) {
                     message.channel.send("DicoMode désactivé");
-                    dicomode = false;
+                    dicoMode = false;
                 }
                 else {
                     message.channel.send("DicoMode activé");
-                    dicomode = true;
+                    dicoMode = true;
                 }
             break;
         }
