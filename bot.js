@@ -44,7 +44,6 @@ client.on('message', message => {
             case "play" :
                 message.channel.send("Jeu lancé");
                 message.channel.send(args[0]);
-                }
             break;
             case "chat" :
                 let chat = message.mentions.members.first();
