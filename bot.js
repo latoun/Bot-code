@@ -7,7 +7,6 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-    let role = message.guild.roles.find("name", "Chat");
     if (message.author.bot) return;
     if(!message.content.startsWith(prefix)) {
         const args = message.content.slice(prefix.length).trim().split(/ +/g);
@@ -40,9 +39,8 @@ client.on('message', message => {
             break;
             case "chat" :
                 let chat = message.mentions.members.first();
-            }
-        }    
-    }
+        }
+    }    
 });
 
 // THIS  MUST  BE  THIS  WAY
