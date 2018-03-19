@@ -42,6 +42,7 @@ client.on('message', message => {
                 message.channel.send(text);
             break;
             case "play" :
+                message.channel.send("Jeu lancé");
                 switch (args[0]){
                     case "chat":
                         if (!chat) {
@@ -58,9 +59,9 @@ client.on('message', message => {
                         if (chat) {
                             message.channel.send("Jeu du chat stoppé");
                             chat = false;
-                            message.guild.roles.find("name","Chat").delete()
+                            message.guild.roles.find("name","Chat").delete();
                         }
-                    break
+                    break;
                 }
             break;
             case "chat" :
