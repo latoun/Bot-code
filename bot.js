@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const prefix = process.env.PREFIX;
-
+dicoMode = false;
 client.on('ready', () => {
     console.log('I am ready!');
 });
@@ -11,11 +11,11 @@ client.on('message', message => {
     if(!message.content.startsWith(prefix)) {
         const args = message.content.trim().split(/ +/g);
         for(var iter = 0; iter < args.length; iter++){
-            if (args[iter].toLowerCase().startsWith("di")) {
+            if (args[iter].toLowerCase().startsWith("di") && dicoMode) {
                 message.channel.send(args[iter].slice(2));
             }
-            if (args[iter].toLowerCase().startsWith("cri")) {
-                message.channel.send(args[iter].slice(2).toUpperCase());
+            if (args[iter].toLowerCase().startsWith("cri") && dicoMode) {
+                message.channel.send(args[iter].slice(3).toUpperCase());
             }
         }
     }
@@ -41,6 +41,15 @@ client.on('message', message => {
             break;
             case "chat" :
                 let chat = message.mentions.members.first();
+            case "dicomode" :
+                if (dicomode) {
+                    message.channel.send("DicoMode désactivé");
+                    dicomode = false;
+                }
+                else {
+                    message.channel.send("DicoMode activé");
+                    dicomode = true;
+                }
         }
     }    
 });
